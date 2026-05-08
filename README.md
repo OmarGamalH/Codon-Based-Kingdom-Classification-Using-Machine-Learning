@@ -203,27 +203,28 @@ final_predictions = rf_model.classes_[np.argmax(avg_prob, axis=1)]
 ## 📁 Project Structure
 
 ```
-├── Preprocessing_And_KNN.ipynb    # EDA, preprocessing, PCA, and KNN training
-├── Codon_usage.ipynb              # Additional EDA notebook
-├── Random_Forest.ipynb            # Random Forest training & evaluation
-├── SVM.ipynb                      # SVM training & evaluation
-├── XGBoost.ipynb                  # XGBoost training & evaluation
-├── Ensemble.ipynb                 # Soft voting ensemble of RF + SVM + KNN
+├── Preprocessing_And_KNN.ipynb              # EDA, preprocessing, PCA, and KNN training
+├── Codon_usage.ipynb                        # Additional EDA notebook
+├── Random_Forest.ipynb                      # Random Forest training & evaluation
+├── SVM.ipynb                                # SVM training & evaluation
+├── XGBoost.ipynb                            # XGBoost training & evaluation
+├── Ensemble.ipynb                           # Soft voting ensemble of RF + SVM + KNN
 │
-├── Ensemble_classification_report.png
-├── Ensemble_confusion_matrix.png
-├── Before_SVM_Classification_report.png
-├── Before_SVM_Confusion_matrix.png
-├── Pre_XGBoost_classification_report.png
-├── Pre_XGBoost_Confusion_matrix.png
-├── Random_Forest_confusion_matrix.png
-├── Random_Forest_confusion_matrix_PCA.png
-├── RF_classification_report.png
-├── RF_classification_report_PCA.png
-├── SVM_classification_report.png
-├── SVM_Confusion_matrix.png
-├── XGBoost_classification_report.png
-└── XGBoost_Confusion_Matrix.png
+└── Images/
+    ├── Before SVM Classification report.png
+    ├── Before SVM Confusion matrix.png
+    ├── Ensemble classification report.png
+    ├── Ensemble_confusion matrix.png
+    ├── Pre XGBoost classification report.png
+    ├── Pre_XGBoost Confusion matrix.png
+    ├── Random Forest_confusion matrix.png
+    ├── Random Forest_confusion matrix PCA.png
+    ├── RF_classification report.png
+    ├── RF_classification report_PCA.png
+    ├── SVM classification report.png
+    ├── SVM Confusion matrix.png
+    ├── XGBoost classification report.png
+    └── XGBoost Confusion Matrix.png
 ```
 
 ---
@@ -311,3 +312,34 @@ XGBoost requires numeric labels. The following encoding is used:
 - **SMOTE** (Synthetic Minority Over-sampling Technique) is applied inside the KNN pipeline to handle class imbalance during training only — never on the test set.
 - Model files are saved as `.pkl` using `joblib` for reuse in the ensemble notebook.
 - All train/test splits use `random_state=42` and `stratify=y` for reproducibility.
+
+---
+
+## 🖼️ Results Gallery
+
+### Random Forest
+
+| Pre-PCA | After PCA |
+|---|---|
+| ![RF Classification Report](Images/RF_classification%20report.png) | ![RF Classification Report PCA](Images/RF_classification%20report_PCA.png) |
+| ![RF Confusion Matrix](Images/Random%20Forest_confusion%20matrix.png) | ![RF Confusion Matrix PCA](Images/Random%20Forest_confusion%20matrix%20PCA.png) |
+
+### SVM
+
+| Pre-PCA | After PCA |
+|---|---|
+| ![SVM Classification Report (Pre-PCA)](Images/Before%20SVM%20Classification%20report.png) | ![SVM Classification Report](Images/SVM%20classification%20report.png) |
+| ![SVM Confusion Matrix (Pre-PCA)](Images/Before%20SVM%20Confusion%20matrix.png) | ![SVM Confusion Matrix](Images/SVM%20Confusion%20matrix.png) |
+
+### XGBoost
+
+| Pre-PCA | After PCA |
+|---|---|
+| ![XGBoost Classification Report (Pre-PCA)](Images/Pre%20XGBoost%20classification%20report.png) | ![XGBoost Classification Report](Images/XGBoost%20classification%20report.png) |
+| ![XGBoost Confusion Matrix (Pre-PCA)](Images/Pre_XGBoost%20Confusion%20matrix.png) | ![XGBoost Confusion Matrix](Images/XGBoost%20Confusion%20Matrix.png) |
+
+### Ensemble (RF + SVM + KNN — Soft Voting)
+
+| Classification Report | Confusion Matrix |
+|---|---|
+| ![Ensemble Classification Report](Images/Ensemble%20classification%20report.png) | ![Ensemble Confusion Matrix](Images/Ensemble_confusion%20matrix.png) |
